@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Ideas;
 use App\Models\User;
 use App\Models\Post;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
 
 Route::view('/', 'welcome', [
@@ -56,7 +57,7 @@ Route::patch('/posts/{post}', function (Post $post) {
 }
 );
 
-
+Route::resource('books', BookController::class);
 
 //user registration routes
 Route::get('/register', [UserController::class, 'index']);
